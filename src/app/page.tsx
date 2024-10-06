@@ -1,11 +1,11 @@
 
-import { Section1 } from "./_components/sec1";
+import { Section2 } from "./_components/sec2";
 
 export default function Home() {
   return (
     <main className="w-full min-h-[100dvh]">
-      <Section1 />
-
+       <Section2 />
+ 
     </main>
   );
 }
