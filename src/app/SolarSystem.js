@@ -336,8 +336,9 @@ const SolarSystem = () => {
             <h2 className="text-xl font-bold">{selectedPlanet.name}</h2>
             <p dangerouslySetInnerHTML={{ __html: selectedPlanet.info }}></p>
             <button onClick={handleCloseInfo} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">
-              Cerrar
+              Close
             </button>
+
           </div>
         </div>
       )}
