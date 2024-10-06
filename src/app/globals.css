@@ -40,6 +40,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 224 71.4% 4.1%;
     --foreground: 210 20% 98%;
@@ -69,10 +70,32 @@ body {
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  /* Otros estilos... */
+
+  .info-panel {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco con un poco de opacidad */
+    padding: 15px; /* Aumentar el padding para mayor espacio */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para mejorar la visibilidad */
+    z-index: 10; /* Asegura que el panel esté encima de otros elementos */
   }
-  body {
-    @apply bg-background text-foreground;
+
+  .button {
+    cursor: pointer;
+    margin: 5px;
+    padding: 10px;
+    background: #007BFF; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición para hover */
+  }
+
+  .button:hover {
+    background: #0056b3; /* Color de fondo en hover */
   }
 }
+

@@ -1,7 +1,7 @@
-
 import { Section2 } from "./_components/sec2";
+
 import { Section3 } from "./_components/sec3";
-import SolarSystem from './SolarSystem';
+
 export default function Home() {
   return (
     <main className="w-full min-h-[100dvh]">
