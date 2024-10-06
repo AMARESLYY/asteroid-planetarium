@@ -16,20 +16,17 @@ export const Section2 = () => {
   }, []);
 
   return (
-    <section className="w-full h-screen flex items-start justify-start md:py-28 lg:py-32 xl:py-48 px-5 relative">
-      <div className="w-full h-full items-start justify-start flex absolute top-0 left-0 z-0 overflow-hidden">
-        <Image className="object-cover" fill alt="Image" src={"/universo.png"} />
-      </div>
+    <section className="w-full h-screen flex items-start justify-start md:py-28 lg:py-32 xl:py-48 px-5 relative bg-[url('/universo.png')]">
       <div className="w-full h-full items-start justify-start gap-y-4 gap-5 z-20">
         <p
           className={`text-xl md:text-6xl text-background font-bold text-left transition-transform duration-1000 ${
             isVisible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
           }`}
         >
-          AstroEscopio
+          AstroScope
         </p>
         <p className="text-xl md:text-2xl lg:text-4xl text-pretty text-bold antialiased tracking-wide text-background text-left md:mt-4">
-         Puerta a las Estrellas
+        Gateway to the Stars
         </p>
       </div>
     </section>
