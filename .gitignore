@@ -29,4 +29,8 @@ Thumbs.db
 .cache/
 *.tgz
 
+
 .next
+
+.next/
+
