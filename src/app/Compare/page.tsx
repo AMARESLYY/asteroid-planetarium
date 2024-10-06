@@ -1,9 +1,9 @@
-import AsteroidTracker from "../../components/AsteroidTracker";
 
+import Asteroids from "../Asteroids"
 export default function Compare() {
     return (
       <main className="w-full min-h-[100dvh]">
-        <AsteroidTracker/>
+        <Asteroids/>
       </main>
     );
   }

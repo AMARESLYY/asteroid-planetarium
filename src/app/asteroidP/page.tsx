@@ -1,10 +1,10 @@
 
-import Asteroids from "../Asteroids"
+import AsteroidTracker from "../../components/AsteroidTracker";
 
 export default function AsteroidP() {
   return (
     <main className="w-full min-h-[100dvh]">
-        <Asteroids/>
+         <AsteroidTracker/>
     </main>
   );
 }
