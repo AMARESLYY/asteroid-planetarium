@@ -26,10 +26,10 @@ export const Section2 = () => {
             isVisible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
           }`}
         >
-          Orrery X
+          AstroEscopio
         </p>
         <p className="text-xl md:text-2xl lg:text-4xl text-pretty text-bold antialiased tracking-wide text-background text-left md:mt-4">
-        Window to the Interactive Cosmos
+         Puerta a las Estrellas
         </p>
       </div>
     </section>
