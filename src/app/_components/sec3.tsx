@@ -28,7 +28,7 @@ export const Section3 = () => {
             </div>
             <div className="w-64 h-64  aspect-square items-start justify-start flex flex-col  bg-muted p-5 border rounded-lg gap-32">
                 <p className="text-lg md:text-xl lg:text-2xl text-pretty text-bold antialiased tracking-wide text-muted-foreground text-center">
-                Solar planet
+                Solar System
                 </p>
                 <Button
                     variant={"outline"}
@@ -41,7 +41,7 @@ export const Section3 = () => {
             </div>
             <div className="w-64 h-64 aspect-square items-start justify-start flex flex-col  bg-muted p-5 border rounded-lg gap-32">
                 <p className="text-lg md:text-xl lg:text-2xl text-pretty text-bold antialiased tracking-wide text-muted-foreground text-center">
-                Compare asteroids
+                Impact Probabilities
                 </p>
                 <Button
                     variant={"outline"}
@@ -49,7 +49,7 @@ export const Section3 = () => {
                     asChild
                     className="w-full h-fit"
                 >
-                    <Link href={"/"}>Try it</Link>
+                    <Link href={"/Compare"}>Try it</Link>
                 </Button>
             </div>
       </div>
