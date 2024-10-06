@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
@@ -9,15 +9,11 @@ const apiUrl = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&en
 
 let asteroids = [];
 let currentIndex = 0;
+let scene, camera, renderer, asteroidMesh, chicxulubMesh;
 
 const Asteroids = () => {
     const canvasRef = useRef(null);
     const [asteroidData, setAsteroidData] = useState(null);
-    const rendererRef = useRef(null);
-    const sceneRef = useRef(null);
-    const cameraRef = useRef(null);
-    const asteroidMeshRef = useRef(null);
-    const chicxulubMeshRef = useRef(null);
 
     const fetchAsteroids = async () => {
         try {
@@ -27,24 +23,24 @@ const Asteroids = () => {
             }
             const data = await response.json();
             asteroids = Object.values(data.near_earth_objects).flat();
-            setAsteroidData(asteroids[currentIndex]); 
+            setAsteroidData(asteroids[currentIndex]);
         } catch (error) {
             console.error("Error fetching asteroids:", error);
         }
     };
 
     const initThreeJS = () => {
-        sceneRef.current = new THREE.Scene();
-        cameraRef.current = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        cameraRef.current.position.z = 3;
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 3;
 
-        rendererRef.current = new THREE.WebGLRenderer({ antialias: true });
-        rendererRef.current.setSize(window.innerWidth, window.innerHeight);
-        canvasRef.current.appendChild(rendererRef.current.domElement);
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        canvasRef.current.appendChild(renderer.domElement);
 
         const light = new THREE.DirectionalLight(0xffffff, 1);
         light.position.set(5, 5, 5);
-        sceneRef.current.add(light);
+        scene.add(light);
 
         createChicxulubAsteroid();
         animate();
@@ -59,9 +55,9 @@ const Asteroids = () => {
         const yucatanTexture = textureLoader.load('asteroidote.jpg');
         const material = new THREE.MeshStandardMaterial({ map: yucatanTexture });
 
-        chicxulubMeshRef.current = new THREE.Mesh(geometry, material);
-        chicxulubMeshRef.current.position.set(-2, 0, 0); 
-        sceneRef.current.add(chicxulubMeshRef.current);
+        chicxulubMesh = new THREE.Mesh(geometry, material);
+        chicxulubMesh.position.set(-2, 0, 0); 
+        scene.add(chicxulubMesh);
     };
 
     const displayAsteroid = (index) => {
@@ -71,8 +67,8 @@ const Asteroids = () => {
         const diameter = asteroid.estimated_diameter.kilometers.estimated_diameter_max;
         const scaledRadius = diameter * 0.1;
 
-        if (asteroidMeshRef.current) {
-            sceneRef.current.remove(asteroidMeshRef.current);
+        if (asteroidMesh) {
+            scene.remove(asteroidMesh);
         }
 
         const geometry = new THREE.SphereGeometry(scaledRadius, 32, 32);
@@ -80,16 +76,17 @@ const Asteroids = () => {
         const asteroidTexture = textureLoader.load('asteroide.jpg'); 
         const material = new THREE.MeshStandardMaterial({ map: asteroidTexture });
 
-        asteroidMeshRef.current = new THREE.Mesh(geometry, material);
-        asteroidMeshRef.current.position.set(2, 0, 0); 
-        sceneRef.current.add(asteroidMeshRef.current);
+        asteroidMesh = new THREE.Mesh(geometry, material);
+        asteroidMesh.position.set(2, 0, 0); 
+        scene.add(asteroidMesh);
 
+        // Actualiza los datos del asteroide actual
         setAsteroidData(asteroid);
     };
 
     const animate = () => {
         requestAnimationFrame(animate);
-        rendererRef.current.render(sceneRef.current, cameraRef.current);
+        renderer.render(scene, camera);
     };
 
     useEffect(() => {
@@ -98,34 +95,33 @@ const Asteroids = () => {
             initThreeJS();
             displayAsteroid(currentIndex);
         };
-    
+
         fetchAndInit();
-    
+
         const handleResize = () => {
-            cameraRef.current.aspect = window.innerWidth / window.innerHeight;
-            cameraRef.current.updateProjectionMatrix();
-            rendererRef.current.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
         };
-    
+
         window.addEventListener('resize', handleResize);
-    
+
         return () => {
             window.removeEventListener('resize', handleResize);
-            if (rendererRef.current) {
-                rendererRef.current.dispose();
-                canvasRef.current.removeChild(rendererRef.current.domElement);
+            if (renderer) {
+                renderer.dispose();
             }
         };
     }, []);
-    
+
     const handlePrev = () => {
         currentIndex = Math.max(0, currentIndex - 1);
-        displayAsteroid(currentIndex);
+        displayAsteroid(currentIndex); // Actualiza la visualización
     };
 
     const handleNext = () => {
         currentIndex = Math.min(asteroids.length - 1, currentIndex + 1);
-        displayAsteroid(currentIndex);
+        displayAsteroid(currentIndex); // Actualiza la visualización
     };
 
     return (
@@ -136,8 +132,13 @@ const Asteroids = () => {
                 <button className="button" onClick={handleNext} disabled={currentIndex === asteroids.length - 1}>Siguiente</button>
                 {asteroidData && (
                     <div>
-                        <h2>{asteroidData.name}</h2>
-                        <p>Diámetro: {asteroidData.estimated_diameter.kilometers.estimated_diameter_max.toFixed(2)} km</p>
+                        <h2>{asteroidData.name} ({asteroidData.id})</h2>
+                        <p>Estimated Diameter: {asteroidData.estimated_diameter.kilometers.estimated_diameter_max.toFixed(2)} km</p>
+                        {asteroidData.close_approach_data.length > 0 && (
+                            <>
+                                <p>Miss Distance: {asteroidData.close_approach_data[0]?.miss_distance.kilometers} km</p>
+                            </>
+                        )}
                     </div>
                 )}
             </div>
