@@ -90,7 +90,17 @@ const SolarSystem = () => {
         size: 0.5,
         speed: 0.02,
         rotationSpeed: 0.005,
-        info: 'Mercury is the closest planet to the Sun. It is the smallest planet in our solar system. It has a thin exosphere and no moons. The surface of Mercury can reach temperatures of up to 427 degrees Celsius during the day and drop to -184 degrees Celsius at night. The poles of Mercury have water ice. A day on Mercury lasts 59 Earth days.',
+        info: `Did you know?<br />
+          It’s the closest planet to the Sun, but it’s not actually the hottest.<br /><br />
+          <strong>Structure and Surface</strong><br />
+          Mercury is the smallest planet in our solar system.<br />
+          It’s a terrestrial planet—small and rocky.<br />
+          It has a thin exosphere.<br />
+          Mercury has no moons.<br />
+          The surface of Mercury can reach up to 427°C during the day and drop to -184°C at night.<br />
+          Mercury's poles have water ice.<br /><br />
+          <strong>Tiempo en Mercurio</strong><br />
+          One day on Mercury lasts 59 Earth days.`,
       },
       {
         name: 'Venus',
@@ -99,7 +109,12 @@ const SolarSystem = () => {
         size: 0.7,
         speed: 0.015,
         rotationSpeed: 0.003,
-        info: 'Venus is the second planet in the solar system. Although it is not the closest to the Sun, it is the hottest planet due to its carbon dioxide-rich atmosphere, which creates a greenhouse effect. A day on Venus lasts 243 Earth days, while a year lasts 225 Earth days. Venus has no moons, and its gravity is 8.87 m/s².',
+        info: `Did you know?<br />
+          Although it's not the closest to the Sun, Venus is the hottest planet due to its atmosphere filled with carbon dioxide, which causes a greenhouse effect, and clouds made of sulfuric acid. These gases trap heat and keep Venus very warm.<br /><br />
+          On Venus, a day is longer than a year! This planet rotates very slowly and in the opposite direction to most other planets, taking 243 Earth days to rotate once, while it takes 225 Earth days to orbit the Sun.<br /><br />
+          Venus has no moons because its gravitational pull would make it difficult for any moon to stay in orbit.<br />
+          Its gravity is 8.87 m/s², which is 0.9 times Earth's gravity!<br />
+          Its mass is 4.867 x 10²⁶ kg, about 0.82 times that of Earth.`,
       },
       {
         name: 'Earth',
@@ -108,7 +123,16 @@ const SolarSystem = () => {
         size: 0.9,
         speed: 0.01,
         rotationSpeed: 0.01,
-        info: 'Earth is our home and the third planet in the solar system. It is the only planet we know of that supports life. Earth\'s atmosphere protects us from incoming meteoroids, and it is primarily composed of nitrogen and oxygen. A day on Earth lasts 24 hours, and a year lasts 365.25 days.',
+        info: `Did you know?<br />
+          Earth's atmosphere protects us from incoming meteors; most of them disintegrate in the atmosphere before reaching the surface.<br /><br />
+          <strong>Structure and Surface</strong><br />
+          Earth is a small, rocky terrestrial planet.<br />
+          Earth’s atmosphere is just the right thickness to keep the planet warm and allow life to exist.<br />
+          It is the only planet in our solar system known to support life.<br />
+          The atmosphere is mostly nitrogen, with enough oxygen for us to breathe.<br /><br />
+          <strong>Time on Earth</strong><br />
+          One day on Earth lasts 24 hours.<br />
+          One year on Earth lasts 365.25 days. Those extra 0.25 days mean we add a day to our calendar every four years. We call it a leap day.`,
       },
       {
         name: 'Mars',
@@ -117,7 +141,13 @@ const SolarSystem = () => {
         size: 0.8,
         speed: 0.0075,
         rotationSpeed: 0.008,
-        info: 'Mars is known as the red planet. It has an average temperature of -65 degrees Celsius and its red color is due to iron oxide in its soil. A day on Mars lasts 24.6 hours, while a year lasts 687 Earth days. Mars has two moons: Phobos and Deimos.',
+        info: `Did you know?<br />
+          Mars has an average temperature of -65°C, far below freezing!<br />
+          It’s about half the size of Earth.<br />
+          Its red color is due to iron oxide (rust) in its soil.<br />
+          Mars has seasons!<br />
+          A day on Mars lasts 24.6 hours, just a little longer than a day on Earth, while a year lasts 687 Earth days.<br />
+          Mars has two moons. Their names are Phobos and Deimos.`,
       },
       {
         name: 'Jupiter',
@@ -126,7 +156,17 @@ const SolarSystem = () => {
         size: 2.0,
         speed: 0.005,
         rotationSpeed: 0.02,
-        info: 'Jupiter is the largest planet in the solar system. Its mass is more than double that of all the other planets combined. Jupiter has 95 officially recognized moons and its atmosphere is primarily composed of hydrogen and helium. A day on Jupiter lasts only 10 hours, and a year is equivalent to 11.8 Earth years.',
+        info: `Did you know?<br />
+          Jupiter is the largest planet in our solar system. Its mass is more than double that of all the other planets combined. It’s similar to a star, but never got massive enough to ignite.<br /><br />
+          <strong>Structure and Surface</strong><br />
+          Jupiter has 95 officially recognized moons.<br />
+          It’s made primarily of hydrogen and helium.<br />
+          It has a very dense atmosphere.<br />
+          Jupiter has rings, but they’re very hard to see.<br />
+          The Great Red Spot on this giant planet is a centuries-old storm, bigger than Earth.<br /><br />
+          <strong>Time on Jupiter</strong><br />
+          A day on Jupiter lasts only 10 hours.<br />
+          A year on Jupiter equals 11.8 Earth years.`,
       },
       {
         name: 'Saturn',
@@ -135,7 +175,18 @@ const SolarSystem = () => {
         size: 1.8,
         speed: 0.003,
         rotationSpeed: 0.02,
-        info: 'Saturn is famous for its rings, which are made of ice and rock. It is a gas giant, and its gravity is 10.44 m/s². A day on Saturn lasts 10.7 hours, and it has at least 146 moons.',
+        info: `Did you know?<br />
+          Saturn is not the only planet with rings, but it certainly has the most beautiful ones. The rings are made up of countless small rings of ice and rock.<br />
+          When Galileo Galilei first observed Saturn through a telescope in the 17th century, he wasn’t sure what he was seeing. At first, he thought he was looking at three planets or a planet with handles. We now know those "handles" turned out to be Saturn’s rings.<br /><br />
+          <strong>Structure and Surface</strong><br />
+          Saturn is a gas giant like Jupiter. It’s made primarily of hydrogen and helium.<br />
+          Saturn has a thick atmosphere.<br />
+          Saturn has a stunning system of seven main rings with gaps between them.<br />
+          Its gravity is 10.44 m/s², about 1.06 times Earth’s gravity.<br />
+          Its mass is 5.683 x 10²⁶ kg, nearly 95 times the mass of Earth!<br /><br />
+          <strong>Time on Saturn</strong><br />
+          A day on Saturn lasts only 10.7 hours.<br />
+          As of June 8, 2023, Saturn has 146 moons.`,
       },
       {
         name: 'Uranus',
@@ -144,7 +195,17 @@ const SolarSystem = () => {
         size: 1.3,
         speed: 0.002,
         rotationSpeed: 0.015,
-        info: 'Uranus is an ice giant with a blue color due to methane in its atmosphere. It is the only planet that rotates on its side. A day on Uranus lasts just over 17 hours, and 28 moons have been identified.',
+        info: `Did you know?<br />
+          Uranus is made of water, methane, and ammonia over a small rocky core. Methane gives Uranus its blue color.<br /><br />
+          <strong>Structure and Surface</strong><br />
+          Uranus is surrounded by 13 rings.<br />
+          It’s an ice giant. It consists mainly of icy materials flowing over a solid core.<br />
+          It has a thick atmosphere made of methane, hydrogen, and helium.<br />
+          It’s the only planet that rotates on its side.<br />
+          Uranus spins in the opposite direction to Earth and most other planets.<br />
+          28 moons have been identified.<br /><br />
+          <strong>Time on Uranus</strong><br />
+          A day on Uranus lasts a little over 17 hours (17 hours and 14 minutes to be exact).`,
       },
       {
         name: 'Neptune',
@@ -153,10 +214,18 @@ const SolarSystem = () => {
         size: 1.2,
         speed: 0.0015,
         rotationSpeed: 0.01,
-        info: 'Neptune is the farthest planet from the Sun and is known for having some of the fastest winds in the solar system, reaching speeds of up to 2,100 km/h. It is composed of a thick mixture of water, ammonia, and methane over a solid core the size of Earth. A full rotation on its axis lasts only 16 hours, but its orbit around the Sun (one year) lasts 165 Earth years. Neptune has 14 known moons, with Triton being the largest.',
+        info: `Did you know?<br />
+          Neptune is the farthest planet from the Sun, but despite its distance, it’s famous for having some of the fastest winds in the solar system, reaching up to 2,100 km/h!<br />
+          It’s composed of a thick mixture of water, ammonia, and methane over a solid core the size of Earth. Methane gives Neptune its distinct blue color.<br />
+          A complete rotation on its axis takes only 16 hours, but its orbit around the Sun (a year) lasts 165 Earth years.<br />
+          It has 14 known moons, with Triton being the largest and most famous!<br />
+          Neptune has a system of 7 faint and dark rings, made of dust and rocky material from collisions between moons or asteroids captured by the planet’s gravity.<br />
+          Its gravity is 11.15 m/s², about 1.14 times Earth’s gravity!<br />
+          Its mass is 1.024 x 10²⁶ kg, about 17 times that of Earth!`
       }
     ];
     
+
     // Crear planetas y órbitas con texturas
     const planets = [];
     const orbits = [];
@@ -265,7 +334,7 @@ const SolarSystem = () => {
         <div className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-lg shadow-lg">
             <h2 className="text-xl font-bold">{selectedPlanet.name}</h2>
-            <p>{selectedPlanet.info}</p>
+            <p dangerouslySetInnerHTML={{ __html: selectedPlanet.info }}></p>
             <button onClick={handleCloseInfo} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">
               Cerrar
             </button>
