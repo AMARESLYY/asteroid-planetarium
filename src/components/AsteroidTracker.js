@@ -1,15 +1,27 @@
-"use client"; 
+"use client";
 
 import React, { useEffect, useState } from 'react';
 import { getSentryTrackedAsteroids, getTrackedAsteroidInfo } from '../api/collisionProbabilityApi';
-import '../AsteroidTracker.css'; // Import the CSS file
-
+import '../AsteroidTracker.css';
 
 const AsteroidTracker = () => {
   const [asteroids, setAsteroids] = useState([]);
   const [currentAsteroid, setCurrentAsteroid] = useState(null);
   const [asteroidIndex, setAsteroidIndex] = useState(0);
   const [impactProbability, setImpactProbability] = useState(null);
+
+  const asteroidImages = [
+    '/Asteroids/1.png',
+    '/Asteroids/2.png',
+    '/Asteroids/3.png',
+    '/Asteroids/5.png',
+    '/Asteroids/7.png',
+    '/Asteroids/8.png',
+    '/Asteroids/13.png',
+  ];
+
+  const imageIndex = asteroidIndex % asteroidImages.length;
+  const asteroidImage = asteroidImages[imageIndex];
 
   useEffect(() => {
     const fetchAsteroids = async () => {
@@ -52,50 +64,34 @@ const AsteroidTracker = () => {
   };
 
   return (
-    <div>
-      <h1>Asteroid Tracker</h1>
-
-      {asteroids.length > 0 && (
-        <div>
-          <h3>Asteroids Being Tracked</h3>
-          <ul>
-            {asteroids.map((asteroid, index) => (
-              <li
-                key={asteroid.des}
-                style={{ cursor: 'pointer', color: asteroidIndex === index ? 'blue' : '#757575' }}
-                onClick={() => {
-                  setAsteroidIndex(index);
-                  setCurrentAsteroid(asteroid.des);
-                }}
-              >
-                {asteroid.des}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {currentAsteroid && impactProbability !== null ? (
-        <div className='impact-info'>
-          <h2>Asteroid: {currentAsteroid}</h2>
-          <p>Probability of Impact: {impactProbability}</p>
-        </div>
-      ) : (
-        <p>Loading asteroid info...</p>
-      )}
-
-      <div>
-        <button onClick={handlePreviousAsteroid} disabled={asteroids.length === 0}>
-          Previous Asteroid
-        </button>
-        <button onClick={handleNextAsteroid} disabled={asteroids.length === 0}>
-          Next Asteroid
-        </button>
+    <div style={{ position: 'relative', width: '100%', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'black' }}>
+      
+      <div style={{ position: 'absolute', left: '20px', top: '50%', transform: 'translateY(-50%)', cursor: 'pointer', fontSize: '2rem', color: 'white' }} onClick={handlePreviousAsteroid}>
+        ←
       </div>
+
+      <div style={{ textAlign: 'center' }}>
+        <img
+          src={asteroidImage}
+          alt={`Asteroide ${currentAsteroid}`}
+          style={{ width: '500px', height: '500px', objectFit: 'contain', borderRadius: '10px' }}
+          />
+        {currentAsteroid && impactProbability !== null ? (
+          <div className='impact-info' style={{ marginTop: '10px', color: 'white', textAlign: 'center' }}>
+          <h2>Asteroid: {currentAsteroid}</h2>
+            <p>Probability of Impact: {(impactProbability * 100).toFixed(6)}%</p>
+          </div>
+        ) : (
+          <p style={{ color: 'white' }}>Loading asteroid info...</p>
+        )}
+      </div>
+
+      <div style={{ position: 'absolute', right: '20px', top: '50%', transform: 'translateY(-50%)', cursor: 'pointer', fontSize: '2rem', color: 'white' }} onClick={handleNextAsteroid}>
+        →
+      </div>
+
     </div>
   );
 };
-
-
 
 export default AsteroidTracker;
