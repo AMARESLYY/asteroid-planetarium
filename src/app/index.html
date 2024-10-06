@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Frame Asteroid Viewer</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <style>
+        body { margin: 0; }
+        .info-panel {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .button {
+            cursor: pointer;
+            margin: 5px;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <a-scene>
+        <a-sky color="#000"></a-sky>
+        <a-entity id="asteroid" geometry="primitive: sphere; radius: 1" material="color: gray"></a-entity>
+        <a-entity id="dinosaur" geometry="primitive: sphere; radius: 6" material="color: dark-gray" position="-10 0 -5"></a-entity>
+    </a-scene>
+    
+    <div class="info-panel">
+        <h3 id="asteroid-name">Asteroid Name</h3>
+        <p id="asteroid-info">Information about the asteroid will appear here.</p>
+        <button class="button" id="prev-btn">Previous</button>
+        <button class="button" id="next-btn">Next</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
