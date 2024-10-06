@@ -82,18 +82,81 @@ const SolarSystem = () => {
     const sunGlow = new THREE.Mesh(sunGlowGeometry, sunGlowMaterial);
     scene.add(sunGlow);
 
-
     const planetData = [
-      { name: 'Mercurio', texture: mercuryTexture, distance: 5, size: 0.5, speed: 0.02, rotationSpeed: 0.005, info: 'Mercurio es el planeta más cercano al Sol.' },
-      { name: 'Venus', texture: venusTexture, distance: 8, size: 0.7, speed: 0.015, rotationSpeed: 0.003, info: 'Venus es el segundo planeta del sistema solar.' },
-      { name: 'Tierra', texture: earthTexture, distance: 11, size: 0.9, speed: 0.01, rotationSpeed: 0.01, info: 'La Tierra es nuestro hogar y el tercer planeta del sistema solar.' },
-      { name: 'Marte', texture: marsTexture, distance: 14, size: 0.8, speed: 0.0075, rotationSpeed: 0.008, info: 'Marte es conocido como el planeta rojo.' },
-      { name: 'Júpiter', texture: jupiterTexture, distance: 20, size: 2.0, speed: 0.005, rotationSpeed: 0.02, info: 'Júpiter es el planeta más grande del sistema solar.' },
-      { name: 'Saturno', texture: saturnTexture, distance: 25, size: 1.8, speed: 0.003, rotationSpeed: 0.02, info: 'Saturno es famoso por sus anillos.' },
-      { name: 'Urano', texture: uranusTexture, distance: 30, size: 1.3, speed: 0.002, rotationSpeed: 0.015, info: 'Urano tiene un eje de rotación inclinado.' },
-      { name: 'Neptuno', texture: neptuneTexture, distance: 35, size: 1.2, speed: 0.0015, rotationSpeed: 0.01, info: 'Neptuno es el planeta más alejado del Sol.' }
+      {
+        name: 'Mercury',
+        texture: mercuryTexture,
+        distance: 5,
+        size: 0.5,
+        speed: 0.02,
+        rotationSpeed: 0.005,
+        info: 'Mercury is the closest planet to the Sun. It is the smallest planet in our solar system. It has a thin exosphere and no moons. The surface of Mercury can reach temperatures of up to 427 degrees Celsius during the day and drop to -184 degrees Celsius at night. The poles of Mercury have water ice. A day on Mercury lasts 59 Earth days.',
+      },
+      {
+        name: 'Venus',
+        texture: venusTexture,
+        distance: 8,
+        size: 0.7,
+        speed: 0.015,
+        rotationSpeed: 0.003,
+        info: 'Venus is the second planet in the solar system. Although it is not the closest to the Sun, it is the hottest planet due to its carbon dioxide-rich atmosphere, which creates a greenhouse effect. A day on Venus lasts 243 Earth days, while a year lasts 225 Earth days. Venus has no moons, and its gravity is 8.87 m/s².',
+      },
+      {
+        name: 'Earth',
+        texture: earthTexture,
+        distance: 11,
+        size: 0.9,
+        speed: 0.01,
+        rotationSpeed: 0.01,
+        info: 'Earth is our home and the third planet in the solar system. It is the only planet we know of that supports life. Earth\'s atmosphere protects us from incoming meteoroids, and it is primarily composed of nitrogen and oxygen. A day on Earth lasts 24 hours, and a year lasts 365.25 days.',
+      },
+      {
+        name: 'Mars',
+        texture: marsTexture,
+        distance: 14,
+        size: 0.8,
+        speed: 0.0075,
+        rotationSpeed: 0.008,
+        info: 'Mars is known as the red planet. It has an average temperature of -65 degrees Celsius and its red color is due to iron oxide in its soil. A day on Mars lasts 24.6 hours, while a year lasts 687 Earth days. Mars has two moons: Phobos and Deimos.',
+      },
+      {
+        name: 'Jupiter',
+        texture: jupiterTexture,
+        distance: 20,
+        size: 2.0,
+        speed: 0.005,
+        rotationSpeed: 0.02,
+        info: 'Jupiter is the largest planet in the solar system. Its mass is more than double that of all the other planets combined. Jupiter has 95 officially recognized moons and its atmosphere is primarily composed of hydrogen and helium. A day on Jupiter lasts only 10 hours, and a year is equivalent to 11.8 Earth years.',
+      },
+      {
+        name: 'Saturn',
+        texture: saturnTexture,
+        distance: 25,
+        size: 1.8,
+        speed: 0.003,
+        rotationSpeed: 0.02,
+        info: 'Saturn is famous for its rings, which are made of ice and rock. It is a gas giant, and its gravity is 10.44 m/s². A day on Saturn lasts 10.7 hours, and it has at least 146 moons.',
+      },
+      {
+        name: 'Uranus',
+        texture: uranusTexture,
+        distance: 30,
+        size: 1.3,
+        speed: 0.002,
+        rotationSpeed: 0.015,
+        info: 'Uranus is an ice giant with a blue color due to methane in its atmosphere. It is the only planet that rotates on its side. A day on Uranus lasts just over 17 hours, and 28 moons have been identified.',
+      },
+      {
+        name: 'Neptune',
+        texture: neptuneTexture,
+        distance: 35,
+        size: 1.2,
+        speed: 0.0015,
+        rotationSpeed: 0.01,
+        info: 'Neptune is the farthest planet from the Sun and is known for having some of the fastest winds in the solar system, reaching speeds of up to 2,100 km/h. It is composed of a thick mixture of water, ammonia, and methane over a solid core the size of Earth. A full rotation on its axis lasts only 16 hours, but its orbit around the Sun (one year) lasts 165 Earth years. Neptune has 14 known moons, with Triton being the largest.',
+      }
     ];
-
+    
     // Crear planetas y órbitas con texturas
     const planets = [];
     const orbits = [];
