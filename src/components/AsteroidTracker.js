@@ -68,7 +68,7 @@ const AsteroidTracker = () => {
   };
 
   // Calculate crater diameter based on energy
-  const craterDiameter = energy ? 300 * Math.cbrt(energy) * .01: 0; // in pixels (km = pixels)
+  const craterDiameter = energy ? 300 * Math.cbrt(energy) * .01 * 3: 0; // in pixels (km = pixels)
 
   const handleShowExplosion = () => {
     setShowExplosion(true);
@@ -119,7 +119,7 @@ const AsteroidTracker = () => {
       {showExplosion && (
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', backgroundColor: 'rgba(0, 0, 0, 0.8)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <div style={{ position: 'relative', width: '80%', height: '80%', textAlign: 'center' }}>
-          <Image className="object-cover" fill alt="Image" src={"/img.png"} />
+          <Image className="object-cover" fill alt="Image" src={"/MexicoImg.png"} />
             <div
               style={{
                 position: 'absolute',
