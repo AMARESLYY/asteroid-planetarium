@@ -1,5 +1,4 @@
-// src/app/_components/sec2.tsx
-"use client"; // Asegúrate de que esta línea esté al principio del archivo
+"use client";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -10,9 +9,9 @@ export const Section2 = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 100); // Tiempo antes de que el texto aparezca
+    }, 100); 
 
-    return () => clearTimeout(timer); // Limpiar el timer si el componente se desmonta
+    return () => clearTimeout(timer); 
   }, []);
 
   return (
