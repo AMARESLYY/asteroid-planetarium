@@ -136,7 +136,7 @@ const Asteroids = () => {
                         <p>Estimated Diameter: {asteroidData.estimated_diameter.kilometers.estimated_diameter_max.toFixed(2)} km</p>
                         {asteroidData.close_approach_data.length > 0 && (
                             <>
-                                <p>Miss Distance: {asteroidData.close_approach_data[0]?.miss_distance.kilometers} km</p>
+                                <p>Miss Distance: {parseFloat(asteroidData.close_approach_data[0]?.miss_distance.kilometers).toFixed(2)} km</p>
                             </>
                         )}
                     </div>
