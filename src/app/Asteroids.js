@@ -128,8 +128,9 @@ const Asteroids = () => {
         <div>
             <div ref={canvasRef} style={{ width: '100%', height: '100vh' }} />
             <div className="info-panel">
-                <button className="button" onClick={handlePrev} disabled={currentIndex === 0}>Anterior</button>
-                <button className="button" onClick={handleNext} disabled={currentIndex === asteroids.length - 1}>Siguiente</button>
+            <button className="button" onClick={handlePrev} disabled={currentIndex === 0}>Previous</button>
+            <button className="button" onClick={handleNext} disabled={currentIndex === asteroids.length - 1}>Next</button>
+
                 {asteroidData && (
                     <div>
                         <h2>{asteroidData.name} ({asteroidData.id})</h2>
