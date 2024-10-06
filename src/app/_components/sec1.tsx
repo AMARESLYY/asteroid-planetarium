@@ -11,8 +11,8 @@ export const Section1 = () => {
       </div>
       <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-t from-background to-background/20 z-10 backdrop-blur-sm filter backdrop-contrast-125" />
       <div className="w-full h-fit items-center justify-center flex flex-col gap-y-4 z-20 max-w-4xl mx-auto">
-        <p className="text-2xl md:text-4xl lg:text-8xl text-pretty antialiased tracking-wide text-foreground text-center">
-        Orrery X
+        <p className="text-xl md:text-2xl lg:text-4xl text-pretty text-bold antialiased tracking-wide text-foreground text-center">
+        Window to the Interactive Cosmos
         </p>
         <div className="w-full h-fit items-center justify-center flex flex-col md:flex-row gap-2 mt-5">
           <Button
