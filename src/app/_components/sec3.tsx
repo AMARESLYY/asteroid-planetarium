@@ -39,7 +39,7 @@ export const Section3 = () => {
                     <Link href={"/system"}>Try it</Link>
                 </Button>
             </div>
-            <div className="w-64 h-64 aspect-square items-start justify-start flex flex-col  bg-muted p-5 border rounded-lg gap-32">
+            <div className="w-64 h-64 aspect-square items-start justify-start flex flex-col  bg-muted p-5 border rounded-lg gap-24">
                 <p className="text-lg md:text-xl lg:text-2xl text-pretty text-bold antialiased tracking-wide text-muted-foreground text-center">
                 Impact Probabilities
                 </p>
