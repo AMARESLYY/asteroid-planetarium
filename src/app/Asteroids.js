@@ -9,11 +9,15 @@ const apiUrl = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&en
 
 let asteroids = [];
 let currentIndex = 0;
-let scene, camera, renderer, asteroidMesh, chicxulubMesh;
 
 const Asteroids = () => {
     const canvasRef = useRef(null);
     const [asteroidData, setAsteroidData] = useState(null);
+    const rendererRef = useRef(null);
+    const sceneRef = useRef(null);
+    const cameraRef = useRef(null);
+    const asteroidMeshRef = useRef(null);
+    const chicxulubMeshRef = useRef(null);
 
     const fetchAsteroids = async () => {
         try {
@@ -30,17 +34,17 @@ const Asteroids = () => {
     };
 
     const initThreeJS = () => {
-        scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.z = 3;
+        sceneRef.current = new THREE.Scene();
+        cameraRef.current = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        cameraRef.current.position.z = 3;
 
-        renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        canvasRef.current.appendChild(renderer.domElement);
+        rendererRef.current = new THREE.WebGLRenderer({ antialias: true });
+        rendererRef.current.setSize(window.innerWidth, window.innerHeight);
+        canvasRef.current.appendChild(rendererRef.current.domElement);
 
         const light = new THREE.DirectionalLight(0xffffff, 1);
         light.position.set(5, 5, 5);
-        scene.add(light);
+        sceneRef.current.add(light);
 
         createChicxulubAsteroid();
         animate();
@@ -55,9 +59,9 @@ const Asteroids = () => {
         const yucatanTexture = textureLoader.load('asteroidote.jpg');
         const material = new THREE.MeshStandardMaterial({ map: yucatanTexture });
 
-        chicxulubMesh = new THREE.Mesh(geometry, material);
-        chicxulubMesh.position.set(-2, 0, 0); 
-        scene.add(chicxulubMesh);
+        chicxulubMeshRef.current = new THREE.Mesh(geometry, material);
+        chicxulubMeshRef.current.position.set(-2, 0, 0); 
+        sceneRef.current.add(chicxulubMeshRef.current);
     };
 
     const displayAsteroid = (index) => {
@@ -67,8 +71,8 @@ const Asteroids = () => {
         const diameter = asteroid.estimated_diameter.kilometers.estimated_diameter_max;
         const scaledRadius = diameter * 0.1;
 
-        if (asteroidMesh) {
-            scene.remove(asteroidMesh);
+        if (asteroidMeshRef.current) {
+            sceneRef.current.remove(asteroidMeshRef.current);
         }
 
         const geometry = new THREE.SphereGeometry(scaledRadius, 32, 32);
@@ -76,17 +80,18 @@ const Asteroids = () => {
         const asteroidTexture = textureLoader.load('asteroide.jpg'); 
         const material = new THREE.MeshStandardMaterial({ map: asteroidTexture });
 
-        asteroidMesh = new THREE.Mesh(geometry, material);
-        asteroidMesh.position.set(2, 0, 0); 
-        scene.add(asteroidMesh);
+        asteroidMeshRef.current = new THREE.Mesh(geometry, material);
+        asteroidMeshRef.current.position.set(2, 0, 0); 
+        sceneRef.current.add(asteroidMeshRef.current);
 
         setAsteroidData(asteroid);
     };
 
     const animate = () => {
         requestAnimationFrame(animate);
-        renderer.render(scene, camera);
+        rendererRef.current.render(sceneRef.current, cameraRef.current);
     };
+
     useEffect(() => {
         const fetchAndInit = async () => {
             await fetchAsteroids();
@@ -97,22 +102,22 @@ const Asteroids = () => {
         fetchAndInit();
     
         const handleResize = () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
+            cameraRef.current.aspect = window.innerWidth / window.innerHeight;
+            cameraRef.current.updateProjectionMatrix();
+            rendererRef.current.setSize(window.innerWidth, window.innerHeight);
         };
     
         window.addEventListener('resize', handleResize);
     
         return () => {
             window.removeEventListener('resize', handleResize);
-            if (renderer) {
-                renderer.dispose();
+            if (rendererRef.current) {
+                rendererRef.current.dispose();
+                canvasRef.current.removeChild(rendererRef.current.domElement);
             }
         };
     }, []);
     
-
     const handlePrev = () => {
         currentIndex = Math.max(0, currentIndex - 1);
         displayAsteroid(currentIndex);

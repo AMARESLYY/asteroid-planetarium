@@ -23,7 +23,7 @@ export const Section3 = () => {
                     asChild
                     className="w-full h-fit"
                 >
-                    <Link href={"/"}>Try it</Link>
+                    <Link href={"/asteroidP"}>Try it</Link>
                 </Button>
             </div>
             <div className="w-64 h-64  aspect-square items-start justify-start flex flex-col  bg-muted p-5 border rounded-lg gap-32">
